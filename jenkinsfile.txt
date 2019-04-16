@@ -3,8 +3,9 @@ pipeline {
     registry = "boopathyvinoth/jenkinsdemo"
     registryCredential = 'docker'
     dockerImage = ''
-  }
-  agent any	
+  }	
+  agent any
+  stages {
     stage('Building image') {
       steps{
         script {
@@ -13,4 +14,4 @@ pipeline {
       }
     }
   }
-}
+ }
