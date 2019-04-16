@@ -1,17 +1,13 @@
+#!groovy
 pipeline {
-  environment {
-    registry = "boopathyvinoth/jenkinsdemo"
-    registryCredential = 'docker'
-    dockerImage = ''
-  }	
-  agent any
-  stages {
-    stage('Building image') {
-      steps{
-        script {
-          dockerImage = bat "docker-compose up --build -d"
-        }
-      }
-    }
-  }
+    agent none
+   stages {     
+    stage('Maven Install') {
+      agent any      
+  }       
+  steps {
+       bat 'docker-compose up --build'
+       }
+     }
+   }
  }
